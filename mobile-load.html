@@ -8,36 +8,8 @@
 <body>
   <h2>Check Console (F12) for Load Status</h2>
 
-  <script>
-    const loadTracker = {};
-
-    function sendLoad(number, amount) {
-        const today = new Date().toISOString().split('T')[0]; // e.g., "2025-07-25"
-
-        if (!loadTracker[number]) {
-            loadTracker[number] = {};
-        }
-
-        if (!loadTracker[number][today]) {
-            loadTracker[number][today] = 0;
-        }
-
-        const currentLoad = loadTracker[number][today];
-
-        if (currentLoad + amount > 500) {
-            console.log(`❌ Load denied for ${number}. Daily limit of ₱500 exceeded (Already sent: ₱${currentLoad}).`);
-        } else {
-            loadTracker[number][today] += amount;
-            console.log(`✅ Sent ₱${amount} to ${number}. Total today: ₱${loadTracker[number][today]}`);
-        }
-    }
-
-    // Test cases
-    sendLoad("09171234567", 200);
-    sendLoad("09171234567", 150);
-    sendLoad("09171234567", 200);
-    sendLoad("09981234567", 500);
-    sendLoad("09981234567", 1);
+  <script src="app.js">
+    
   </script>
 </body>
 </html>
